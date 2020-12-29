@@ -1,10 +1,11 @@
+
 # == Schema Information
 #
 # Table name: products
 #
 #  id         :bigint           not null, primary key
-#  name       :string
-#  price      :decimal(, )
+#  name       :string(255)
+#  price      :decimal(10, )
 #  quantity   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
