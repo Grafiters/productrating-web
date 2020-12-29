@@ -4,7 +4,7 @@ module FormatHelper
     # TODO: Format the price. 
     # - Display a dollar sign
     # - Display two decimal places
-    price
+    number_to_currency(price, unit: "$", separator: ",", delimiter: "")
   end
 
 end
