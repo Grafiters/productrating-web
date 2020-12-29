@@ -3,7 +3,7 @@
 # Table name: reviews
 #
 #  id          :bigint           not null, primary key
-#  comment     :string
+#  comment     :string(255)
 #  rating      :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -30,5 +30,12 @@ class Review < ApplicationRecord
     # - Rating cannot be greater than 5
     # - Rating cannot be a negative number
     # - Handle any potential error/crash
+    return unless rating
+
+    if rating < 0
+      errors.add(:rating, 'too few')
+    elsif rating > 5
+      errors.add(:rating, 'too few')
+    end
   end
 end
