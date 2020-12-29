@@ -3,7 +3,7 @@
 # Table name: purchases
 #
 #  id               :bigint           not null, primary key
-#  delivery_address :string
+#  delivery_address :string(255)
 #  quantity         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -19,6 +19,7 @@
 #
 class Purchase < ApplicationRecord
   belongs_to :product
+  has_many  :review
 
   validates :quantity, presence: true, numericality: { only_integer: true }
   validates :delivery_address, presence: true
@@ -27,6 +28,11 @@ class Purchase < ApplicationRecord
   # - Return true if a review for this purchase exists in the database 
   # - Return false otherwise
   def review_exist?
-    false
+    if review.exists?(purchase_id: id)
+      return true
+    else
+      return false
+    end
   end
+  
 end
