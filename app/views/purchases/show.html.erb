@@ -12,7 +12,7 @@ Purchased at: <%= @purchase.created_at %>
 <br />
 <br />
 
-<%# TODO: Open purchases#edit page %>
+<%# TODO: Open purchases#edit page clear %>
 <%= link_to 'Edit', edit_product_purchase_url %>
 
 &nbsp;&nbsp;
@@ -26,8 +26,11 @@ Purchased at: <%= @purchase.created_at %>
 
 <h2>Review</h2>
 
-<% if @purchase.review_exist %>
+<% if @purchase.review_exist? %>
   <%= @review.comment %>
+    <br />
+    <br />
+  <%= link_to 'Give a Review', new_review_url(review: { purchase_id: @purchase.id }) %>
 <% else %>
   <%= link_to 'Give a Review', new_review_url(review: { purchase_id: @purchase.id }) %>
 <% end %>
