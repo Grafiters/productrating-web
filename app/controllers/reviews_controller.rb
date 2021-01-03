@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     # raise "TODO: Save to database: #{review_params}"
     @review.assign_attributes(review_params)
     if @review.save
-      redirect_to product_url('products')
+      redirect_to product_url
     else
       flash[:error] = @review.errors.full_messages.join(', ')
       render :new
