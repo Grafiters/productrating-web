@@ -1,0 +1,12 @@
+<div>
+    <h1>Product</h1>
+
+    Name: <%= @store.name %>
+    <br />
+    Description: <%= @store.description %>
+    <br />
+    Average rating: <%= @rating %>
+
+    <br />
+    <%= link_to 'Buy', new_product_url(@product) %>
+</div>

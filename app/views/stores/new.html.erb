@@ -1,0 +1,20 @@
+<div>
+
+<%= form_with model: @store, local: true do |f| %>
+
+  <div style="margin-top: 10px;">
+    <div><%= f.label :name %><div>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div style="margin-top: 10px;">
+    <div><%= f.label :description %><div>
+    <%= f.text_field :description %>
+  </div>
+
+  <div style="margin-top: 14px;">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>
+
+</div>
