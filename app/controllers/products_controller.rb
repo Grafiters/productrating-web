@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
     when :show, :edit, :update, :destroy
       @product = Product.find(params[:id])
       @purchase = @product.purchases.find_by(params[:id])
-      @review = @purchase.review.all
     end
   end
 
@@ -25,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @review = @purchase.review.all
     @rating = @review.sum('rating')
     @date = @product.created_at.strftime('%F')
   end
