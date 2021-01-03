@@ -8,7 +8,7 @@ class StoresController < ApplicationController
             @store = Store.new
         when :show,
             @store = Store.find_by(params[:id])
-            @product = @store
+            
         end
     end
 
@@ -17,6 +17,13 @@ class StoresController < ApplicationController
     end
 
     def new
+    end
+
+    def show
+        @product = Product.find(params[:product_id])
+        @purchase = @product.purchases.find(params[:id])
+        @review = @purchase.review.all
+        @rating = @review.sum('rating')
     end
 
     def create
