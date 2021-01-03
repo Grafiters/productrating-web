@@ -27,6 +27,7 @@ class Purchase < ApplicationRecord
   # TODO: Implement this logic
   # - Return true if a review for this purchase exists in the database 
   # - Return false otherwise
+  # clear
   def review_exist?
     if review.exists?(purchase_id: id)
       return true
