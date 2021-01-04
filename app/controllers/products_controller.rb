@@ -24,9 +24,12 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @review = @purchase.review.all
-    @rating = @review.sum('rating')
-    @date = @product.created_at.strftime('%F')
+    if @purchase != nil
+      @review = @purchase.review.all
+      @rating = @review.sum('rating')
+      @date = @product.created_at.strftime('%F')
+    end
+    
   end
 
   def index
