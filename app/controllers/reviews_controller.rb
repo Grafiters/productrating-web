@@ -13,9 +13,10 @@ class ReviewsController < ApplicationController
   def create
     # TODO: Create the record in database
     # raise "TODO: Save to database: #{review_params}"
+    # clear
     @review.assign_attributes(review_params)
     if @review.save
-      redirect_to product_url
+      redirect_to root_url
     else
       flash[:error] = @review.errors.full_messages.join(', ')
       render :new
