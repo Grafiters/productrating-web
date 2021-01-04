@@ -10,7 +10,7 @@ class PurchasesController < ApplicationController
       @purchase = @product.purchases.find(params[:id])
       @review = @purchase.review.find_by(params[:purchase_id])
     when :destroy
-      @purchase = Purchase.find(params[:id])
+      @purchase = @product.purchases.find(params[:id])
     end
   end
 
@@ -55,13 +55,11 @@ class PurchasesController < ApplicationController
     # TODO: Delete record
     #clear
     @purchase.destroy
-    redirect_to product_ur(@product)
+    redirect_to product_purchases_url
   end
 
   def show
-    # render json: {
-      
-    # }
+    @date = @product.created_at.strftime('%F')
   end
 
   private
