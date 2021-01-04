@@ -18,7 +18,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   
   validate :quantity_within_limit
-  validate :purchase_exists
   
   def quantity_within_limit
     return unless quantity
@@ -28,12 +27,6 @@ class Product < ApplicationRecord
     end
   end
 
-  def purchase_exists
-    if purchases.exists?(product_id: id)
-      return true
-    else
-      return false
-    end
   end
 
 end
